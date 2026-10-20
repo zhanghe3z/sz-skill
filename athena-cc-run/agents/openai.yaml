@@ -1,0 +1,4 @@
+interface:
+  display_name: "Athena CC 运行与恢复"
+  short_description: "在 Athena 上用中性启动器运行 CC，过滤任务日志并保存可恢复进度"
+  default_prompt: "使用 $athena-cc-run 在 Athena 计算节点上启动 CC，检查进程和日志，并保留可恢复工作目录。"

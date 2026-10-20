@@ -1,0 +1,4 @@
+interface:
+  display_name: "UE 科幻夜景氛围教程"
+  short_description: "按教程顺序完成夜景城市灯光、雾气、背景拼接与后期色调调整"
+  default_prompt: "使用 $ue-night-city-atmosphere，在当前 Unreal 场景中按教程顺序完成夜景氛围塑造，并逐步检查结果。"
