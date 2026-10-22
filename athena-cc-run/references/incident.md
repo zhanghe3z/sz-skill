@@ -1,5 +1,7 @@
 # 2026-10-05 Athena ALE 3D 记录
 
+这是改名为 lingbot 之前的历史证据。以下 CC、`cc-agent`、脚本名和日志名保留当时原值；当前启动方式见 [athena-runbook.md](athena-runbook.md)。
+
 ## 中断
 
 - 桌面重建：cnode403，作业 415745，CC 求解约 12 分 30 秒后退出 `-9`。

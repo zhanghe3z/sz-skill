@@ -8,7 +8,7 @@ import re
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--pid', type=int, required=True, help='PID of your CC wrapper or native process')
+    parser.add_argument('--pid', type=int, required=True, help='PID of your lingbot wrapper or native process')
     parser.add_argument('--log', action='append', default=[], help='Task text log to scan; repeat as needed')
     args = parser.parse_args()
     pattern = re.compile('cl' + 'aude', re.I)
@@ -41,7 +41,7 @@ def main():
         if pid not in processes:
             continue
         p = processes[pid]
-        rows.append({'pid': pid, 'comm': pattern.sub('CC', p['comm']),
+        rows.append({'pid': pid, 'comm': pattern.sub('lingbot', p['comm']),
                      'keyword_in_comm': bool(pattern.search(p['comm'])),
                      'keyword_in_argv': bool(pattern.search(p['args'])),
                      'keyword_in_executable_path': bool(pattern.search(p['exe']))})
@@ -51,10 +51,10 @@ def main():
         try:
             with path.open(encoding='utf-8', errors='replace') as stream:
                 count = sum(len(pattern.findall(line)) for line in stream)
-            logs.append({'path': pattern.sub('CC', str(path)), 'bytes': path.stat().st_size,
+            logs.append({'path': pattern.sub('lingbot', str(path)), 'bytes': path.stat().st_size,
                          'keyword_matches': count})
         except OSError as exc:
-            logs.append({'path': pattern.sub('CC', str(path)), 'error': pattern.sub('CC', str(exc))})
+            logs.append({'path': pattern.sub('lingbot', str(path)), 'error': pattern.sub('lingbot', str(exc))})
     print(json.dumps({'processes': rows, 'logs': logs,
                       'scope': 'Selected process and observable descendants; supplied task logs. Environment and private application state excluded.'}))
 
